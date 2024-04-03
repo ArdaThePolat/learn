@@ -99,12 +99,10 @@ function Board({ xIsNext, squares, onPlay, currentMove, history}) {
     const cols = [];
     for (let j = 0; j < 3; j++) {
       const index = i*3+j;
-      console.log(currentMove, history.length-1);
       let highlight = 'white';
       if (Number(currentMove)==Number(history.length-1) && calculatedWinner && calculatedWinner.includes(index)){
         highlight = 'yellow';
       }
-      console.log(highlight);
       cols.push(<Square value={squares[index]} onSquareClick={() => handleClick(index)} key={`${i}-${j}`} highlight={highlight}/>);
     }
     return cols;
